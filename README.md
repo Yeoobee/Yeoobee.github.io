@@ -25,10 +25,10 @@ int a= 10;
         - div, h1~h6 등
     
     ### 주로 사용하게 될 태그들
-
+    ```
     -  <style>, <script>, <h1>, <p>, <div>
     - <form>, <input>, <button>, <select>
-
+    ```
     ### UI/UX
     - UI(User Interface): 화면, GUI(Graphical User Interface). 얼마나 보기 좋은지
     - UX(User Experience): 사용자 경험. 얼마나 쓰기 좋은지
