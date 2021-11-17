@@ -107,3 +107,32 @@ int a= 10;
     - ex) class1 이라는 요소를 가져온다면 document.querySelector('.class1')
 - getElementsByClassName()
     - 현재 html에 작성된 태그 중 특정 class속성값을 가지고 있는 요소를 가져옴.
+
+    ## 20211116
+    1.크기 단위
+    - px, %, em, rem 등
+    - em: 자신의 부모요소의 폰트 사이즈 기본
+    - rem: html 폰트 사이즈(16px) 기본
+
+    ## 20211117
+    1. 포트폴리오 git에 업로드할 때
+    - repository 주소는 반드시
+     - 본인 username.github.io 로 만들것
+    - 계정당 하나밖에 못만듦
+    - 메인 페이지는 반드시 index.html 이어야 함
+    2. signup.html 회원가입 항목
+    - 여기도 간단하게 부트스트랩을 적용
+    - 아이디
+     - 정규식 적용할 것
+    - 비밀번호
+     - 정규식 적용할 것
+    - 비밀번호확인
+     - 일치여부 출력
+    - 이메일
+     - 도메인은 select 이용
+    - 성별
+     - redio 버튼 이용
+    - 전화번호
+     - 정규식 적용할 것
+    - 주소
+     - 다음 api 활용할 것
