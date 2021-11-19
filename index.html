@@ -7,6 +7,11 @@
     <title>portfolio</title>
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
     <style>
         body{
             height: 3000px;
@@ -15,17 +20,23 @@
             background-color:black;
         }
         section{
-            background-color:black;
+            background-color:white;
         }
         #skills{
-            background-color: rgb(35, 75, 35);
+            background-color: white;
         }
         #projects{
-            background-color: gray;
+            background-color: white;
         }
         footer{
             background-color: rgb(182, 165, 199);
         }
+        .vl {
+             border-left: 6px solid rgba(0, 0, 0, 0.171);
+                height: 500px;
+    }
+
+
     </style>
 </head>
 <body>
@@ -36,10 +47,10 @@
         <div class="container d-flex align-items-center py-3">
             <ul class="nav flex-grow-1">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">About me</a>
+                    <a href="#Aboutme" class="nav-link text-light">About me</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-light">Skills</a>
+                    <a href="#Skills" class="nav-link text-light">Skills</a>
                 </li>
                 <li class="nav-item">
                     <!-- 해당 페이지 내에서 특정 영역으로 이동할 때. href 속성값에 id 값을 주면 해당 영역으로 스크롤이동됨 -->
@@ -94,11 +105,38 @@
         </div>
     </section>
 
+    <section id="introduce">  
+        <div class="row text-center">
+            <h2 id="Aboutme" style="margin-top: 50px;"><b>About me</b></h2>
+        </div>
+        <div class="container bg-white mb-3 pt-3 pb-3" style="display: flex;">      
+        <div id="flex" class="col-4 text-left bg-white " style="width:300px;">
+            <img src="../이미지/artificial-intelligence-g76d7d1322_1920.png" alt="" width="300px">
+            <p class="pt-2" style="font-size: 15px;"><b>이름</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 김재엽</p>
+            <p class="pt-2" style="font-size: 15px;"><b>생년월일</b>&nbsp;&nbsp;&nbsp;1993년 4월 7일</p>
+            <p class="pt-2" style="font-size: 15px;"><b>주소</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인천광역시</p>
+            <p class="pt-2" style="font-size: 15px;"><b>이메일</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ppang407@naver.com</p>
+            <p class="pt-2" style="font-size: 15px;"><b>연락처</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;010-8549-4723</p>
+        </div>
+        <div class="vl"></div>
+<div class="container">
+        <div class="col-4 text-center bg-white " style="width:300px;">
+            <p class="pt-2" style="font-size: 23px;"><b>경력</b></p>
+        </div>
+        <div class="col-4 text-center bg-white " style="width:300px;">
+            <p class="pt-2" style="font-size: 23px;"><b>자격증</b></p>
+        </div>
+        <div class="col-4 text-center bg-white " style="width:300px;">
+            <p class="pt-2" style="font-size: 23px;"><b>학력</b></p>
+        </div>
+    </div>
+    </div>
+    </section>
+
     <section id="skills">
-        <div class="container bg-info mb-3 pt-3 pb-3">
+        <div class="container bg-white mb-3 pt-3 pb-3">
             <div class="row text-center">
-                <h2>Skills</h2>
-                <h4>사용가능한 언어 및 툴 소개</h4>
+                <h2 id="Skills" style="margin-top: 50px;"><b>Skills</b></h2>
             </div>
             <div class="row">
                 <div class="col-4 text-center" style="background-color: white;">
@@ -114,8 +152,8 @@
                         <h5>jpa</h5>                 
                     </div>
                 </div>
-                <div class="col-4 text-center" style="background-color: green;">
-                    <img src="../images.jpg" alt="" height="350">
+                <div class="col-4 text-center" >
+                    <img src="../이미지/computer-g347a5bcae_1920.png" alt="" width="600px">
                 </div>
                 <div class="col-4 text-center" style="background-color: white;">
                     <div>
@@ -135,14 +173,13 @@
     </section>
 
     <section id="projects">
-        <div class="container text-center bg-primary mb-3 py-3">
-            <h2>Projects</h2>
-            <h4 class="mb-4">진행했던 프로젝트를 오약합니다.</h4>
+        <div class="container text-center bg-white mb-3 py-3">
+            <h2 id="Skills" style="margin-top: 50px;"><b>Projects</b></h2>
             <div class="row">
                 <div class="col-4">
-                    <img class="rounded" src="../다운로드.png" alt="개발자그림">
-                    <p>Spring Framework를 이용한</p>
-                    <p>개발기간:</p>
+                    <img class="rounded" src="../이미지/signinup.PNG" alt="" height="250px">
+                    <p>signinup</p>
+                    <p>개발기간:2021.11.18-2021.11.19</p>
                 </div>
                 <div class="col-4">
                     <img class="rounded" src="../다운로드.png" alt="개발자그림">
