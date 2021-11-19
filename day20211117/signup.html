@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    <style>
+        input{
+            border-radius: 2px;
+            margin-bottom: 2px;
+        }
+        header{
+            background-color:black;
+            height: 220px;
+        }
+        #id, #password, #rePassword {
+            width: 500px;
+            height: 35px;
+        }
+
+        span {
+            color: gray;
+        }
+        #sexname{
+            display: inline;
+        }
+
+        #sex{
+            width: 20px;
+            height: 20px;
+            border: 1px;
+        }
+
+    </style>
+
+    <script>
+        function idFun() {
+            const id = document.getElementById('id').value
+            const exp = /^[a-zA-Z\d]{7,15}$/;
+            const exp1 = /^[ㄱ-힣~`!@#$%^&*()-=+]{1,15}$/;
+            const exp2 = /^[a-zA-Z/dㄱ-힣~`!@#$%^&*()-=+]{7,15}$/;
+            if (id.length == 0) {
+                idCheck.innerHTML = '필수항목입니다.'
+                idCheck.style.color = 'red'
+            } else if (id.match(exp)) {
+                idCheck.innerHTML = '사용가능한 아이디입니다.'
+                idCheck.style.color = 'yellowgreen'
+            } else if (id.match(exp1)) {
+                idCheck.innerHTML = '한글,특수문자는 사용할 수 없습니다.'
+                    idCheck.style.color = 'red'
+            } else {
+                if (id.match(exp2)) {
+                    idCheck.innerHTML = '한글,특수문자는 사용할 수 없습니다.'
+                    idCheck.style.color = 'red'
+                } else {                
+                    idCheck.innerHTML = '7~15글자 내외로 만들어주세요.'
+                    idCheck.style.color = 'red'
+                }
+            }
+
+        }
+
+        function passwordFun() {
+
+            const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[a-z\d!@#$%^&*]{8,20}$/;
+            const password = document.getElementById('password').value
+            const rePassword = document.getElementById('rePassword').value
+
+            if (password.length > 8 && password.length < 20) {
+                if (password.match(exp)) {
+                    passwordCheck.innerHTML = '좋습니다!'
+                    passwordCheck.style.color = 'yellowgreen'
+                } else {
+                    passwordCheck.innerHTML = '영소문자,숫자,특수문자를 이용하여 조합해주세요'
+                    passwordCheck.style.color = 'red'
+                }
+            } else if (password.length == 0) {
+                passwordCheck.innerHTML = '필수항목입니다.'
+                passwordCheck.style.color = 'red'
+            } else {
+                passwordCheck.innerHTML = "8~20자 이내로 작성해주세요."
+                passwordCheck.style.color = 'red'
+            }
+        }
+
+        function rePasswordFun() {
+            if (password.value == rePassword.value) {
+                rePasswordCheck.innerHTML = '비밀번호가 서로 일치합니다.'
+                rePasswordCheck.style.color = 'yellowgreen'
+            } else {
+                rePasswordCheck.innerHTML = '비밀번호가 서로 일치하지 않습니다.'
+                rePasswordCheck.style.color = 'red'
+            }
+        }
+
+        function selectEmail() {
+            const email = document.getElementById('email')
+            const emailList = document.getElementById('emailList').value
+            email.value = emailList
+        }
+
+        function phoneCheck(){
+            const exp =  /^\d{3}-\d{4}-\d{4}$/;
+            const phone = document.getElementById('phone').value
+            const result = document.getElementById('phone-check-result')
+
+            if(phone.match(exp)){
+                result.innerHTML='유효합니다'
+                result.style.color='green'
+            }else{
+                result.innerHTML='형식이 맞지 않습니다.'
+                result.style.color='red'     
+            }
+        }
+
+    </script>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+</script>
+
+</head>
+
+<body>
+    <header>
+
+        <div class="container-md text-center bg-white">
+            <img src="../이미지/hello-g97b7598c3_1920.png" alt="" width="500px">
+        </div>
+
+    </header>
+
+    <div class ="container">
+        <h4>아이디</h4> <input type="text" name="id" id="id" maxlength = "15" onkeyup="idFun()"><br>
+    <span id="idCheck"></span><br>
+
+
+    <h4>비밀번호</h4><input type="password" name="password" id="password" maxlength = "15" onkeyup="passwordFun()"><br>
+    <span id="passwordCheck"></span><br>
+    <h4>비밀번호 재입력</h4> <input type="password" name="rePassword" id="rePassword" maxlength = "15" onblur="rePasswordFun()"><br>
+    <span id="rePasswordCheck"></span><br>
+
+    <h4>이메일</h4> <input type="text" name="emailId" style="width: 230px; height: 30px;" > @ 
+                  <input type="text" id="email" name="domain" style="width: 230px; height: 30px; " dir="rtl" placeholder="naver.com">
+    <select id="emailList" onchange="selectEmail()">
+        <option>직접입력</option>
+        <option value="naver.com">naver.com</option>
+        <option value="google.com">google.com</option>
+        <option value="daum.net">daum.net</option>
+    </select><br><br>
+
+    
+    
+    <h4>전화번호</h4> <input type="text" id="phone" onblur="phoneCheck()" style="width: 230px; height: 30px;" placeholder="000-0000-0000">
+    <span id="phone-check-result"></span><br><br>
+    
+    <h4 id="sexname">성별 :  </h4> <input type="radio" id="sex" name="sex" value="남성">
+    <label for="sex"><h5>남성</h5></label>
+    <input type="radio" id="sex2" name="sex" value="여성">
+    <label for="sex2"><h5>여성</h5></label> <br><br>
+
+    <h4>주소</h4>
+<input type="text" id="sample6_postcode" style="width: 230px; height: 30px; margin-bottom: 5px;" placeholder="우편번호">
+<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+<input type="text" id="sample6_address" style="width: 460px; height: 30px; margin-bottom: 5px;" placeholder="주소"><br>
+<input type="text" id="sample6_detailAddress" style="width: 240px; height: 30px; margin-bottom: 5px;" placeholder="상세주소">
+<input type="text" id="sample6_extraAddress" style="width: 240px; height: 30px; margin-bottom: 5px;" placeholder="참고항목">
+</div>
+
+
+</body>
+
+</html>
