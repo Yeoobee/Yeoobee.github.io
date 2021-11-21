@@ -19,17 +19,15 @@
         
     <style>
 
-        header {
-            background-color: black;
-            height: 110px;
+header{
+            background-color:#212529;
+            height: 72px;
         }
         
-        body{
-            background-color: black;
-        }
+
         
         footer{
-            background-color: black;
+        
             height: 100px;
         }
 
@@ -198,10 +196,15 @@
 </head>
 
 <body>
-    <header>
 
-        <div class="container-md text-center bg-white">
-            <img src="../이미지/java-gfebed4b1c_1920.png" alt="" width="250px">
+    <header>
+        <div class="container #212529 mb-3 pt-3 pb-3" style="display: flex;">
+            <div>
+                <h1 style="color: white;">회원가입</h1>
+            </div>
+            <div>
+                <h4 style="color: white; margin-left: 15px; margin-top: 15px;">Sign up</h4>
+            </div>
         </div>
 
     </header>
@@ -209,7 +212,7 @@
     <!-- <form action="./index.html" method="post"> -->
 
         <div class="container-md bg-white">
-            <h1 style="color: rgba(80, 71, 66, 0.781);">회원가입</h1><br>
+                <br><br>
 
             <input type="text" class="inputReadonly" value="아이디" readonly> <input type="text" name="id" id="id" maxlength="15" onkeyup="idFun()"><br>
             <span id="idCheck"></span><br>
@@ -259,15 +262,17 @@
             <input type="text" id="sample6_extraAddress" style="width: 240px; height: 30px; margin-bottom: 5px;"
                 placeholder="참고항목"><br><br>
 
-            <button style="width: 150px; margin-right: 10px;">가입</button>
-            <button style="width: 150px;" onclick="location.href='./index.html'">메인화면</button><br><br>
+                <button type="button" class="btn btn-outline-dark">회원가입</button>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href='./index.html'">가입취소</button>
+
 
         </div>
 
-        <footer>
+        <!-- <footer>
             <div class="container bg-light" style="height: 100px;">
              
                 </div>
+                </footer> -->
     <!-- </form> -->
 
 </body>
